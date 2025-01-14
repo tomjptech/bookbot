@@ -58,13 +58,19 @@ def get_book_text(path):
     with open(path) as f:
         return f.read()
 
+def word_and_letter_report(words,letters,book_path):
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{words} words found in the book.\n")
+    for letter in letters:
+        print(f"The '{letter}' character was found {letters[letter]} times")
+    print("--- End Report ---")
+
 def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     word_count = get_word_count(text)
     letter_count_a_z = get_letter_count_a_z(text)
     character_count = get_character_count(text)
-    print(letter_count_a_z)
-    print(character_count)
+    word_and_letter_report(word_count,letter_count_a_z,book_path)
 
 main()
